@@ -10,7 +10,7 @@
     macros {
         switch_win_screen: switch_win_screen {
             compatible = "zmk,behaviors-macro-one-param";
-            #binding-cells = <0>;
+            #binding-cells = <1>;
             bindings
                 = <&macro_press LGUI>
                 , <&macro_press LSHIFT>
@@ -21,7 +21,7 @@
         };
         switch_win_desktop: switch_win_desktop {
             compatible = "zmk,behaviors-macro-one-param";
-            #binding-cells = <0>;
+            #binding-cells = <1>;
             bindings
                 = <&macro_press LGUI>
                 , <&macro_press LCTRL>
@@ -31,6 +31,7 @@
                 , <&macro_release LCTRL>
         };
     };
+
     keymap {
         compatible = "zmk,keymap";
 
