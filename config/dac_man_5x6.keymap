@@ -17,7 +17,7 @@
                 , <&macro_param_1to1>
                 , <&macro_press MACRO_PLACEHOLDER>
                 , <&macro_release LGUI>
-                , <&macro_release LSHIFT>
+                , <&macro_release LSHIFT>;
         };
         switch_win_desktop: switch_win_desktop {
             compatible = "zmk,behaviors-macro-one-param";
@@ -28,7 +28,7 @@
                 , <&macro_param_1to1>
                 , <&macro_press MACRO_PLACEHOLDER>
                 , <&macro_release LGUI>
-                , <&macro_release LCTRL>
+                , <&macro_release LCTRL>;
         };
     };
 
