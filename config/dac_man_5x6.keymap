@@ -7,6 +7,30 @@
 #define LOWER   2
 
 / {
+    macros {
+        switch_win_screen: switch_win_screen {
+            compatible = "zmk,behaviors-macro-one-param";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press LGUI>
+                , <&macro_press LSHIFT>
+                , <&macro_param_1to1>
+                , <&macro_press MACRO_PLACEHOLDER>
+                , <&macro_release LGUI>
+                , <&macro_release LSHIFT>
+        };
+        switch_win_desktop: switch_win_desktop {
+            compatible = "zmk,behaviors-macro-one-param";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press LGUI>
+                , <&macro_press LCTRL>
+                , <&macro_param_1to1>
+                , <&macro_press MACRO_PLACEHOLDER>
+                , <&macro_release LGUI>
+                , <&macro_release LCTRL>
+        };
+    };
     keymap {
         compatible = "zmk,keymap";
 
@@ -60,18 +84,18 @@
 // commented layout is not actual layout.
 // -------------------------------------------------------------------------------------------------------------------------
 // |    F1   |    F2   |    F3   |    F4   |    F5   |    F6   |                   |    F7   |    F8   |    F9   |   F10   |   F11   |   F12   |
-// |    ~    |    ~    |    ~    |    ~    |    ~    | C_VOL_UP|                   |    ~    |    ~    |    ~    |    ~    |    ~    |    ~    |
+// |    ~    |    ~    |    ~    |    ~    |    ~    | C_VOL_UP|                   |    ~    |swiscreen|swideskto|    ~    |    ~    |    ~    |
 // |    ~    |   LEFT  |   UP    |  DOWN   |  RIGHT  | C_VOL_DN|                   |    ~    |    ~    |    ~    |    ~    |    ~    |    ~    |
-// |    ~    |    ~    |    ~    |    ~    |    ~    |  C_MUTE |                   |    ~    |    ~    |    ~    |    ~    |    ~    |    ~    |
+// |    ~    |   NUBS  |    ~    |    ~    |    ~    |  C_MUTE |                   |    ~    |    ~    |    ~    |    ~    |    ~    |    ~    |
 //                     |    ~    |    ~    |                                                           |    ~    |    ~    |
 //                               |    ~    |    ~    |                   |    ~    |    ~    |
 //                                         |    ~    |    ~    |    ~    |    ~    |
 //                                         |    ~    |    ~    |    ~    |    ~    |
             bindings = <
 &kp F1         &kp F2     &kp F3   &kp F4    &kp F5     &kp F6                       &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
-&trans         &trans     &trans   &trans    &trans     &kp C_VOL_UP                 &trans    &trans    &trans    &trans    &trans    &trans
+&trans         &trans     &trans   &trans    &trans     &kp C_VOL_UP                 &trans    &switch_win_screen    &switch_win_desktop    &trans    &trans    &trans
 &trans         &kp LEFT   &kp UP   &kp DOWN  &kp RIGHT  &kp C_VOL_DN                 &trans    &trans    &trans    &trans    &trans    &trans
-&trans         &trans     &trans   &trans    &trans     &kp C_MUTE                   &trans    &trans    &trans    &trans    &trans    &trans
+&trans         &kp NUBS   &trans   &trans    &trans     &kp C_MUTE                   &trans    &trans    &trans    &trans    &trans    &trans
                           &trans   &trans                                                                &trans    &trans
                                    &trans    &trans                          &trans  &trans
                                              &trans     &trans    &trans     &trans
