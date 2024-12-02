@@ -9,26 +9,20 @@
 / {
     macros {
         switch_win_screen: switch_win_screen {
-            compatible = "zmk,behaviors-macro-one-param";
-            #binding-cells = <1>;
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             bindings
-                = <&macro_press LGUI>
-                , <&macro_press LSHIFT>
-                , <&macro_param_1to1>
-                , <&macro_press MACRO_PLACEHOLDER>
-                , <&macro_release LGUI>
-                , <&macro_release LSHIFT>;
+                = <&macro_press &kp LGUI &kp LSHIFT>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LGUI &kp LSHIFT>;
         };
         switch_win_desktop: switch_win_desktop {
-            compatible = "zmk,behaviors-macro-one-param";
-            #binding-cells = <1>;
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
             bindings
-                = <&macro_press LGUI>
-                , <&macro_press LCTRL>
-                , <&macro_param_1to1>
-                , <&macro_press MACRO_PLACEHOLDER>
-                , <&macro_release LGUI>
-                , <&macro_release LCTRL>;
+                = <&macro_press &kp LGUI &kp LCTRL>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LGUI &kp LCTRL>;
         };
     };
 };
