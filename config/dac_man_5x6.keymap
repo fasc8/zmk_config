@@ -31,7 +31,9 @@
                 , <&macro_release LCTRL>;
         };
     };
+};
 
+/ {
     keymap {
         compatible = "zmk,keymap";
 
